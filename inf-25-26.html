@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vídeos - Sport Operário Marinhense</title>
+  <link rel="icon" href="10109817.png" type="image/ico">
+  <style>
+    /* Impedimos o scroll no body para fixar header e footer */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom right, #ecdd06, #2a8f02);
+      color: white;
+      height: 100vh; /* Altura total do ecrã */
+      display: flex;
+      flex-direction: column;
+      overflow: hidden; 
+    }
+
+    /* --- HEADER --- */
+    header {
+      background-color: #ecdd06;
+      color: black;
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 1rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+      flex-shrink: 0; /* Não encolhe */
+      z-index: 10;
+    }
+
+    .voltar {
+      background-color: #2a8f02;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+      font-weight: bold;
+    }
+
+    /* --- ÁREA CENTRAL (A ÚNICA QUE MOVE) --- */
+    main {
+      flex: 1; /* Ocupa todo o espaço entre header e footer */
+      overflow-y: auto; /* Ativa o scroll apenas aqui */
+      padding: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    /* Estilização da barra de scroll para ficar mais discreta (opcional) */
+    main::-webkit-scrollbar {
+      width: 8px;
+    }
+    main::-webkit-scrollbar-thumb {
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+    }
+
+    .grid-videos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      width: 100%;
+      max-width: 1000px;
+    }
+
+    .btn-video {
+      background-color: rgba(0, 0, 0, 0.3);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      color: white;
+      padding: 2rem 1.5rem;
+      border-radius: 12px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    .btn-video:hover {
+      background-color: #ecdd06;
+      color: black;
+      transform: translateY(-5px);
+      border-color: #2a8f02;
+    }
+
+    /* --- FOOTER FIXO --- */
+    footer {
+      background-color: #2a8f02;
+      padding: 0.8rem;
+      text-align: center;
+      flex-shrink: 0; /* Não encolhe */
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      z-index: 10;
+    }
+
+    /* Ajuste para ecrãs pequenos */
+    @media (max-width: 600px) {
+      .grid-videos {
+        grid-template-columns: 1fr;
+      }
+      header {
+        font-size: 1rem;
+      }
+      header div {
+        margin-right: 0 !important;
+      }
+      main {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <button class="voltar" onclick="window.location.href='index.html'">Voltar</button>
+  <div style="flex: 1; text-align: center; margin-right: 70px;">
+    Infantis Fem. 2025/2026
+  </div>
+</header>
+
+<main>
+  <div class="grid-videos">
+    <a href="https://www.youtube.com/watch?v=PwjtnZHUk-0" target="_blank" class="btn-video">
+      ▶ S.O.M. - MG Volei
+    </a>
+    
+    <a href="https://www.youtube.com/watch?v=B7E7va1RfJw" target="_blank" class="btn-video">
+      ▶ C.D. Fátima - S.O.M.
+    </a>
+    
+    <a href="https://www.youtube.com/watch?v=sEXKNAANF_s" target="_blank" class="btn-video">
+      ▶ S.O.M. - G.R.A.P.
+    </a>
+    
+    <a href="https://www.youtube.com/watch?v=2KsxUXy-22E" target="_blank" class="btn-video">
+      ▶ A.B.A. - S.O.M.
+    </a>
+    
+    </div>
+</main>
+
+<footer id="rodape"></footer>
+
+<script>
+  function atualizarDataHora() {
+    const agora = new Date();
+    document.getElementById('rodape').textContent = 
+      agora.toLocaleDateString('pt-PT') + " " + 
+      agora.toLocaleTimeString('pt-PT', { hour: '2-digit', minute: '2-digit' });
+  }
+  setInterval(atualizarDataHora, 1000);
+  atualizarDataHora();
+</script>
+
+</body>
+</html>

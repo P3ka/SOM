@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Página Inicial</title>
+  <link rel="icon" href="som.png" type="image/ico">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom right, #ecdd06, #2a8f02);
+      color: white;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      background-color: #ecdd06;
+      color: black;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+    }
+    .btn {
+      background-color: rgba(164, 190, 43, 0.336);
+      border: none;
+      padding: 2rem 3rem;
+      border-radius: 10px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .btn:hover {
+      background-color: rgba(208, 255, 0, 0.336);
+    }
+    footer {
+      background-color: #2a8f02;
+      padding: 1rem 2rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    Sport Operário Marinhense
+  </header>
+
+  <main>
+    <button class="btn" onclick="window.location.href='inf-25-26.html'">Infantis Femininos 2025/2026</button>
+    <p hidden > <button class="btn" onclick="window.location.href='inf-25-26.html'">Infantis Femininos 2025/2026</button> </p>
+  </main>
+
+  <footer id="rodape"></footer>
+
+  <script>
+    function atualizarDataHora() {
+      const agora = new Date();
+      const data = agora.toLocaleDateString('pt-PT');
+      const hora = agora.toLocaleTimeString('pt-PT', { hour: '2-digit', minute: '2-digit' });
+      document.getElementById('rodape').textContent = `${data} ${hora}`;
+    }
+
+    setInterval(atualizarDataHora, 1000);
+    atualizarDataHora();
+  </script>
+</body>
+</html>

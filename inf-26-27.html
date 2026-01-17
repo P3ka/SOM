@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Próxima Época - SOM</title>
+  <link rel="icon" href="10109817.png" type="image/ico">
+  <style>
+    /* Configuração para ocupar o ecrã inteiro sem scroll na página toda */
+    html, body {
+      height: 100%;
+      margin: 0;
+      overflow: hidden; 
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom right, #ecdd06, #2a8f02);
+      color: white;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* --- HEADER FIXO --- */
+    header {
+      background-color: #ecdd06;
+      color: black;
+      padding: 0.5rem 1rem;
+      display: grid;
+      grid-template-columns: 80px 1fr 80px;
+      align-items: center;
+      min-height: 60px;
+      flex-shrink: 0; /* Impede que o header encolha */
+    }
+
+    .voltar {
+      grid-column: 1;
+      background-color: #2a8f02;
+      color: white;
+      border: none;
+      padding: 0.5rem;
+      cursor: pointer;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    header h1 {
+      grid-column: 2;
+      margin: 0;
+      font-size: 1.2rem;
+      text-align: center;
+    }
+
+    /* --- ÁREA PRINCIPAL --- */
+    main {
+      flex: 1; /* Ocupa todo o espaço restante */
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow: hidden; /* O scroll será apenas na tabela */
+    }
+
+    /* Contentor da Tabela com Scroll Interno */
+    .tabela-container {
+      width: 100%;
+      max-width: 1000px;
+      background-color: rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+      overflow: auto; /* Ativa scroll horizontal e vertical */
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      max-height: 100%; /* Ocupa o máximo possível dentro do main */
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 650px; /* Garante que não esmaga no telemóvel */
+    }
+
+    /* --- 1ª LINHA FIXA (STICKY) --- */
+    thead th {
+      position: sticky;
+      top: 0; /* Fica presa no topo do contentor */
+      background-color: #ecdd06; /* Amarelo sólido para não ver o fundo ao rolar */
+      color: black;
+      z-index: 10;
+      padding: 1rem;
+      text-align: center;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      border-bottom: 2px solid #2a8f02;
+    }
+
+    td {
+      padding: 1rem;
+      text-align: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      vertical-align: middle;
+    }
+
+    tbody tr:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    /* Botão de vídeo */
+    .btn-video {
+      background-color: #ecdd06;
+      color: black;
+      border: none;
+      padding: 0.4rem 0.8rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 0.85rem;
+      display: inline-block;
+    }
+
+    .link-local {
+      color: #ecdd06;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* --- FOOTER FIXO --- */
+    footer {
+      background-color: #2a8f02;
+      padding: 0.8rem;
+      text-align: center;
+      font-size: 0.9rem;
+      flex-shrink: 0; /* Impede que o footer encolha */
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <button class="voltar" onclick="window.location.href='index.html'">Voltar</button>
+    <h1>Jogos 2026/2027</h1>
+    <div></div>
+  </header>
+
+  <main>
+    <div class="tabela-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Jogo</th>
+            <th>Data e Hora</th>
+            <th>Localização</th>
+            <th>Vídeo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>S.O.M. vs C.D. Fátima</td>
+            <td>15/10/2026 - 15:00</td>
+            <td><a href="https://maps.app.goo.gl/89TkMTurXBZyqZZV9" target="_blank" class="link-local">Pavilhão da Embra</a></td>
+            <td><a href="https://youtu.be/PwjtnZHUk-0" target="_blank" class="btn-video">Ver Jogo</a></td>
+          </tr>
+          <tr><td>Jogo de Teste 2</td><td>20/10/2026 - 10:00</td><td><a href="#" class="link-local">Pavilhão X</a></td><td><a href="#" class="btn-video">Brevemente</a></td></tr>
+          <tr><td>Jogo de Teste 3</td><td>20/10/2026 - 10:00</td><td><a href="#" class="link-local">Pavilhão X</a></td><td><a href="#" class="btn-video">Brevemente</a></td></tr>
+          <tr><td>Jogo de Teste 4</td><td>20/10/2026 - 10:00</td><td><a href="#" class="link-local">Pavilhão X</a></td><td><a href="#" class="btn-video">Brevemente</a></td></tr>
+          <tr><td>Jogo de Teste 5</td><td>20/10/2026 - 10:00</td><td><a href="#" class="link-local">Pavilhão X</a></td><td><a href="#" class="btn-video">Brevemente</a></td></tr>
+          <tr><td>Jogo de Teste 6</td><td>20/10/2026 - 10:00</td><td><a href="#" class="link-local">Pavilhão X</a></td><td><a href="#" class="btn-video">Brevemente</a></td></tr>
+          <tr><td>Jogo de Teste 7</td><td>20/10/2026 - 10:00</td><td><a href="#" class="link-local">Pavilhão X</a></td><td><a href="#" class="btn-video">Brevemente</a></td></tr>
+          <tr><td>Jogo de Teste 8</td><td>20/10/2026 - 10:00</td><td><a href="#" class="link-local">Pavilhão X</a></td><td><a href="#" class="btn-video">Brevemente</a></td></tr>
+          <tr><td>Jogo de Teste 9</td><td>20/10/2026 - 10:00</td><td><a href="#" class="link-local">Pavilhão X</a></td><td><a href="#" class="btn-video">Brevemente</a></td></tr>
+          <tr><td>Jogo de Teste 10</td><td>20/10/2026 - 10:00</td><td><a href="#" class="link-local">Pavilhão X</a></td><td><a href="#" class="btn-video">Brevemente</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <footer id="rodape"></footer>
+
+  <script>
+    function atualizarDataHora() {
+      const agora = new Date();
+      document.getElementById('rodape').textContent = 
+        agora.toLocaleDateString('pt-PT') + " " + 
+        agora.toLocaleTimeString('pt-PT', { hour: '2-digit', minute: '2-digit' });
+    }
+    setInterval(atualizarDataHora, 1000);
+    atualizarDataHora();
+  </script>
+
+</body>
+</html>
