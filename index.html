@@ -2,62 +2,114 @@
 <html lang="pt">
 <head>
   <meta charset="UTF-8">
-  <title>Página Inicial</title>
-  <link rel="icon" href="som.png" type="image/ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>S.O.M. - Página Inicial</title>
+  <link rel="icon" href="som.png" type="image/png">
   <style>
+    /* Configuração para fixar Header e Footer */
     body {
       margin: 0;
       font-family: Arial, sans-serif;
       background: linear-gradient(to bottom right, #ecdd06, #2a8f02);
       color: white;
-      height: 100vh;
+      height: 100vh; /* Altura total do ecrã */
       display: flex;
       flex-direction: column;
+      overflow: hidden; /* Impede scroll na página toda */
     }
+
+    /* --- HEADER FIXO --- */
     header {
       background-color: #ecdd06;
       color: black;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      padding: 1rem;
+      text-align: center;
       font-size: 1.5rem;
       font-weight: bold;
+      flex-shrink: 0; /* Impede que o header encolha */
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     }
+
+    /* --- ÁREA CENTRAL COM SCROLL --- */
     main {
-      flex: 1;
+      flex: 1; /* Ocupa o espaço restante */
+      overflow-y: auto; /* Apenas esta zona faz scroll se necessário */
+      padding: 2rem;
       display: flex;
       justify-content: center;
-      align-items: center;
-      gap: 2rem;
+      align-items: flex-start; /* Alinha ao topo para o scroll funcionar bem */
     }
-    .btn {
-      background-color: rgba(164, 190, 43, 0.336);
-      border: none;
-      padding: 2rem 3rem;
-      border-radius: 10px;
+
+    /* Grelha de botões adaptável (igual à página de vídeos) */
+    .grid-links {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      width: 100%;
+      max-width: 1000px;
+    }
+
+    .btn-main {
+      background-color: rgba(0, 0, 0, 0.3);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      color: white;
+      padding: 2.5rem 1.5rem; /* Botões grandes e fáceis de clicar */
+      border-radius: 12px;
       font-size: 1.2rem;
+      font-weight: bold;
       cursor: pointer;
-      transition: background 0.3s;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
-    .btn:hover {
-      background-color: rgba(208, 255, 0, 0.336);
+
+    .btn-main:hover {
+      background-color: #ecdd06;
+      color: black;
+      transform: translateY(-5px);
+      border-color: #2a8f02;
     }
+
+    /* --- FOOTER FIXO --- */
     footer {
       background-color: #2a8f02;
-      padding: 1rem 2rem;
+      padding: 1rem;
       text-align: center;
+      flex-shrink: 0; /* Impede que o footer encolha */
+      font-weight: bold;
+    }
+
+    /* Ajuste para Telemóveis */
+    @media (max-width: 600px) {
+      header { font-size: 1.2rem; }
+      main { padding: 1rem; }
+      .grid-links {
+        grid-template-columns: 1fr; /* Uma coluna apenas */
+      }
     }
   </style>
 </head>
 <body>
+
   <header>
     Sport Operário Marinhense
   </header>
 
   <main>
-    <button class="btn" onclick="window.location.href='inf-25-26.html'">Infantis Femininos 2025/2026</button>
-    <p hidden > <button class="btn" onclick="window.location.href='inf-25-26.html'">Infantis Femininos 2025/2026</button> </p>
+    <div class="grid-links">
+      <a href="inf-25-26.html" class="btn-main">
+        Infantis Femininos 2025/2026
+      </a>
+
+      <p hidden> <a href="inf-26-27.html" class="btn-main">
+        Infantis Femininos 2026/2027
+      </a> </p>
+      
+      </div>
   </main>
 
   <footer id="rodape"></footer>
@@ -65,13 +117,13 @@
   <script>
     function atualizarDataHora() {
       const agora = new Date();
-      const data = agora.toLocaleDateString('pt-PT');
-      const hora = agora.toLocaleTimeString('pt-PT', { hour: '2-digit', minute: '2-digit' });
-      document.getElementById('rodape').textContent = `${data} ${hora}`;
+      document.getElementById('rodape').textContent = 
+        agora.toLocaleDateString('pt-PT') + " " + 
+        agora.toLocaleTimeString('pt-PT', { hour: '2-digit', minute: '2-digit' });
     }
-
     setInterval(atualizarDataHora, 1000);
     atualizarDataHora();
   </script>
+
 </body>
 </html>
